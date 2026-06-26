@@ -5,7 +5,6 @@ colorFrom: yellow
 colorTo: blue
 sdk: docker
 pinned: false
-license: agpl-3.0
 short_description: TNL6323-Project
 ---
 
@@ -15,25 +14,70 @@ Check out the configuration reference at https://huggingface.co/docs/hub/spaces-
 
 ## 📋 Project Overview
 
-**Title:** TNL6323-Project
+**Subject:** TNL6323 Natural Language Processing
 
-text
+**Title:** Restaurant & Food Review Sentiment Analysis
+
+**Category:** Food Review
+
+**Description:** Sushi Restaurant & Food Review Sentiment
 
 ## 🛠️ Technologies Used
 
 - **Language:** Python
+- **Framework:** Flask
+- **Machine Learning:** Scikit-learn
+- **NLP:** TF-IDF, Logistic Regression, VADER Sentiment
+- **Transformer Model:** CardiffNLP RoBERTa Sentiment Model
+- **Frontend:** HTML, CSS, JavaScript
+- **Data Processing:** Pandas, NumPy
+- **Model Storage:** Joblib
 
 ## ✨ Key Features
 
-- text
+- 🔍 Real-time restaurant review sentiment classification
+- 😊 Emoji extraction and sentiment preservation
+- 📊 Interactive sentiment analytics dashboard
+- 🍣 Food review sentiment analysis
+- 👨‍🍳 Aspect-based detection for:
+  - Food
+  - Service
+  - Ambiance
+  - Price
+- 🤖 Dual-model prediction:
+  - Classical Machine Learning Model
+  - Transformer-Based Model
+- 📈 Confidence score visualization
+- 📋 Dataset insights and review statistics
+- 🌐 Web-based user interface using Flask
 
 
 ## 📁 Project Structure
 
-- `text` - Folder for 
-- 
-- 
-- 
+```text
+TNL6323-Project/
+│
+├── app.py                     # Main Flask application
+├── preprocess.py              # Text cleaning and preprocessing
+├── features.py                # Custom VADER feature extraction
+├── Dockerfile                 # Docker container configuration
+│
+├── data/
+│   └── analytics.json         # Dashboard analytics data
+│
+├── models/
+│   ├── sentiment_model.joblib # Trained sentiment model
+│   └── metrics.json           # Model evaluation metrics
+│
+├── static/
+│   ├── app.js                 # Frontend functionality
+│   └── style.css              # Website styling
+│
+├── templates/
+│   └── index.html             # Main web interface
+│
+└── requirements.txt           # Required Python packages
+```
 
 ## 👥 Contributors
 
