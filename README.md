@@ -85,18 +85,6 @@ TNL6323-Project/
     <tbody>
         <tr>
             <td align="center" valign="top" width="25%">
-                <a href="https://github.com/sekjs19" target="_blank">
-                    <img src="https://avatars.githubusercontent.com/u/134927115?v=4" width="100px;" alt="sekjs19 Avatar"/><br />
-                    <sub><b>sekjs19</b></sub>
-                </a>
-            </td>
-            <td align="center" valign="top" width="25%">
-                <a href="https://github.com/yanyee0814" target="_blank">
-                    <img src="https://avatars.githubusercontent.com/u/208572964?v=4" width="100px;" alt="yanyee0814 Avatar"/><br />
-                    <sub><b>yanyee0814</b></sub>
-                </a>
-            </td>
-            <td align="center" valign="top" width="25%">
                 <a href="https://github.com/Jacob7179" target="_blank">
                     <img src="https://avatars.githubusercontent.com/u/70430960?v=4" width="100px;" alt="Jacob7179 Avatar"/><br />
                     <sub><b>Jacob7179</b></sub>
@@ -106,6 +94,18 @@ TNL6323-Project/
                 <a href="https://github.com/t1an-wei" target="_blank">
                     <img src="https://avatars.githubusercontent.com/u/242118479?v=4" width="100px;" alt="t1an-wei Avatar"/><br />
                     <sub><b>t1an-wei</b></sub>
+                </a>
+            </td>
+            <td align="center" valign="top" width="25%">
+                <a href="https://github.com/sekjs19" target="_blank">
+                    <img src="https://avatars.githubusercontent.com/u/134927115?v=4" width="100px;" alt="sekjs19 Avatar"/><br />
+                    <sub><b>sekjs19</b></sub>
+                </a>
+            </td>
+            <td align="center" valign="top" width="25%">
+                <a href="https://github.com/yanyee0814" target="_blank">
+                    <img src="https://avatars.githubusercontent.com/u/208572964?v=4" width="100px;" alt="yanyee0814 Avatar"/><br />
+                    <sub><b>yanyee0814</b></sub>
                 </a>
             </td>
         </tr>
