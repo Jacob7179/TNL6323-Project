@@ -61,6 +61,7 @@ TNL6323-Project/
 ├── preprocess.py              # Text cleaning and preprocessing
 ├── features.py                # Custom VADER feature extraction
 ├── Dockerfile                 # Docker container configuration
+├── run.bat                    # Automatic project setup script
 │
 ├── data/
 │   └── analytics.json         # Dashboard analytics data
