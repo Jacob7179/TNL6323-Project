@@ -1,114 +1,73 @@
 ---
-title: TNL6323-Project
-emoji: 🦀
-colorFrom: yellow
-colorTo: blue
+title: MakanSense Malaysia Restaurant Sentiment
+emoji: 🍜
+colorFrom: green
+colorTo: yellow
 sdk: docker
+app_port: 7860
 pinned: false
-short_description: TNL6323-Project
+license: mit
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+# MakanSense — Malaysia Restaurant & Food Review Sentiment
 
-<h1 align="center">TNL6323-Project</h1>
+A sentiment-analysis web app for **TNL6323 Natural Language Processing**
+(domain *d. Restaurant & Food Reviews, Malaysia context*). It classifies
+Google Maps restaurant reviews as **positive / neutral / negative** and answers
+business questions about the reviews — what customers like, what they complain
+about, how they describe the ambience, what drives 5-star vs 1-star ratings, and
+more.
 
-## 📋 Project Overview
+## What it does
 
-**Subject:** TNL6323 Natural Language Processing
+**Live classifier** — type any review and get the sentiment, confidence,
+per-class probabilities, detected aspects (food / service / ambience / price)
+and any emojis, using either:
+- **Classical model** — TF-IDF (word + character n-grams) **+ VADER lexicon**
+  features → Logistic Regression, trained on the project dataset.
+- **Transformer model** — `cardiffnlp/twitter-roberta-base-sentiment-latest`
+  (loaded on demand; an advanced feature).
 
-**Title:** Restaurant & Food Review Sentiment Analysis
+**Insights dashboard** — pre-computed answers to every project question, drawn
+from the whole dataset: overall sentiment split, star distribution, keyword
+themes (via log-odds), aspect-based sentiment, and a model-comparison table.
 
-**Category:** Food Review
+## Advanced features (rubric)
 
-**Description:** Sushi Restaurant & Food Review Sentiment
+1. **Transformer model** — RoBERTa sentiment pipeline, toggleable in the UI.
+2. **Aspect-based sentiment** — every review is split into food / service /
+   ambience / price using lexicons, each with its own sentiment breakdown.
+3. **Emoji integration** — emojis are converted to words before classification
+   (so 😍 contributes positive signal) and surfaced in the result.
 
-## 🛠️ Technologies Used
+## Run locally
 
-- **Language:** Python
-- **Framework:** Flask
-- **Machine Learning:** Scikit-learn
-- **NLP:** TF-IDF, Logistic Regression, VADER Sentiment
-- **Transformer Model:** CardiffNLP RoBERTa Sentiment Model
-- **Frontend:** HTML, CSS, JavaScript
-- **Data Processing:** Pandas, NumPy
-- **Model Storage:** Joblib
-
-## ✨ Key Features
-
-- 🔍 Real-time restaurant review sentiment classification
-- 😊 Emoji extraction and sentiment preservation
-- 📊 Interactive sentiment analytics dashboard
-- 🍣 Food review sentiment analysis
-- 👨‍🍳 Aspect-based detection for:
-  - Food
-  - Service
-  - Ambiance
-  - Price
-- 🤖 Dual-model prediction:
-  - Classical Machine Learning Model
-  - Transformer-Based Model
-- 📈 Confidence score visualization
-- 📋 Dataset insights and review statistics
-- 🌐 Web-based user interface using Flask
-
-
-## 📁 Project Structure
-
-```text
-TNL6323-Project/
-│
-├── app.py                     # Main Flask application
-├── preprocess.py              # Text cleaning and preprocessing
-├── features.py                # Custom VADER feature extraction
-├── Dockerfile                 # Docker container configuration
-├── run.bat                    # Automatic project setup script
-│
-├── data/
-│   └── analytics.json         # Dashboard analytics data
-│
-├── models/
-│   ├── sentiment_model.joblib # Trained sentiment model
-│   └── metrics.json           # Model evaluation metrics
-│
-├── static/
-│   ├── app.js                 # Frontend functionality
-│   └── style.css              # Website styling
-│
-├── templates/
-│   └── index.html             # Main web interface
-│
-└── requirements.txt           # Required Python packages
+```bash
+pip install -r requirements.txt
+python train.py            # trains the model -> models/sentiment_model.joblib
+python build_analytics.py  # builds the dashboard data -> data/analytics.json
+python app.py              # serves on http://localhost:7860
 ```
 
-## 👥 Contributors
+## Deploy to Hugging Face Spaces
 
-<table>
-    <tbody>
-        <tr>
-            <td align="center" valign="top" width="25%">
-                <a href="https://github.com/Jacob7179" target="_blank">
-                    <img src="https://avatars.githubusercontent.com/u/70430960?v=4" width="100px;" alt="Jacob7179 Avatar"/><br />
-                    <sub><b>Jacob7179</b></sub>
-                </a>
-            </td>
-            <td align="center" valign="top" width="25%">
-                <a href="https://github.com/t1an-wei" target="_blank">
-                    <img src="https://avatars.githubusercontent.com/u/242118479?v=4" width="100px;" alt="t1an-wei Avatar"/><br />
-                    <sub><b>t1an-wei</b></sub>
-                </a>
-            </td>
-            <td align="center" valign="top" width="25%">
-                <a href="https://github.com/sekjs19" target="_blank">
-                    <img src="https://avatars.githubusercontent.com/u/134927115?v=4" width="100px;" alt="sekjs19 Avatar"/><br />
-                    <sub><b>sekjs19</b></sub>
-                </a>
-            </td>
-            <td align="center" valign="top" width="25%">
-                <a href="https://github.com/yanyee0814" target="_blank">
-                    <img src="https://avatars.githubusercontent.com/u/208572964?v=4" width="100px;" alt="yanyee0814 Avatar"/><br />
-                    <sub><b>yanyee0814</b></sub>
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+1. Create a new Space → **SDK: Docker**.
+2. Upload all files in this folder (keep the structure).
+3. The Space builds from the `Dockerfile` and starts automatically.
+   The classical model works immediately; the transformer downloads on first
+   use of the **Transformer** toggle.
+
+## Project structure
+
+```
+app.py              Flask web service (routes + prediction API)
+train.py            trains & compares 3 classical models, saves the best
+build_analytics.py  pre-computes the dashboard answers (analytics.json)
+preprocess.py       text cleaning (metadata stripping, emoji handling)
+features.py         VADER lexicon feature transformer
+templates/index.html, static/style.css, static/app.js   front-end
+models/             trained model, metrics.json, confusion_matrix.png
+data/               raw + cleaned reviews, analytics.json
+```
+
+Built for TNL6323, March/April 2026.

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sushi Restaurant Review — Sentiment Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="tilestrip"></div>
+
+<div class="wrap">
+
+  <!-- top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brandmark">🍣</div>
+      <div>
+        <div class="brandname">Sushi Restaurant Review</div>
+        <div class="brandsub">Customer Review Sentiment Analysis</div>
+      </div>
+    </div>
+    <div class="healthpill" id="healthpill">
+      <span class="dot" id="hdot"></span><span id="htext">checking models…</span>
+    </div>
+  </header>
+
+  <!-- hero intro -->
+  <section class="hero">
+    <div class="eyebrow">TNL6323 · Natural Language Processing</div>
+    <h1>What are your diners <span class="hl">really</span> saying?</h1>
+    <p class="lede">A sentiment-analysis system for sushi restaurant reviews.
+      Import your review data below to build the model, then classify reviews live and
+      see what the whole dataset reveals about taste, service, ambience and value.</p>
+  </section>
+
+  <!-- train with your own data (STEP 01) -->
+  <section class="block" id="trainsec">
+    <div class="sectionhead">
+      <div>
+        <h2>Import data &amp; train</h2>
+        <p class="sub">Start here — upload your reviews (CSV or Excel) to build the model. The dashboard below fills in once you do.</p>
+      </div>
+    </div>
+    <div class="trainpanel">
+      <div class="trainrow">
+        <label class="filedrop" id="fileLabel">
+          <input type="file" id="trainFile" accept=".csv,.xlsx,.xls" hidden>
+          <span id="fileName">Choose a CSV or Excel file…</span>
+        </label>
+        <div class="toggle" id="modeToggle">
+          <button data-mode="append" class="active">Add to current</button>
+          <button data-mode="replace">Replace all</button>
+        </div>
+        <button class="analyze" id="trainBtn">Train model</button>
+      </div>
+      <p class="trainnote">Your file needs a <b>review text</b> column (named review, text or comment)
+        and a <b>sentiment</b> column (values: positive / neutral / negative).
+        Rating and aspect columns are optional. Accepts <b>.csv</b>, <b>.xlsx</b> and <b>.xls</b>.</p>
+      <div class="trainextra">
+        <button class="ghostbtn" id="sampleBtn">Or load the sample dataset</button>
+      </div>
+      <div id="trainStatus" class="trainstatus" style="display:none"></div>
+    </div>
+  </section>
+
+  <!-- live classifier -->
+  <section class="block" id="livesec">
+    <div class="sectionhead">
+      <span class="num">01</span>
+      <div>
+        <h2>Live sentiment classifier</h2>
+        <p class="sub">Type any review and classify it instantly (available once you've trained above).</p>
+      </div>
+    </div>
+    <div class="classifier">
+      <div class="cl-input">
+        <label for="review">Try a review</label>
+        <textarea id="review" placeholder="e.g. The salmon nigiri was fresh and the staff very friendly, but a bit pricey 😊"></textarea>
+        <div class="samples" id="samples"></div>
+        <div class="controls">
+          <div class="toggle" id="modeltoggle">
+            <button data-model="classical" class="active">Classical</button>
+            <button data-model="transformer">Transformer</button>
+          </div>
+          <button class="analyze" id="analyzeBtn">Analyze sentiment</button>
+        </div>
+      </div>
+      <div class="cl-result" id="resultPane">
+        <div class="placeholder" id="placeholder">
+          Your sentiment verdict, confidence, detected aspects and emojis will appear here.
+        </div>
+        <div id="resultBody" style="display:none">
+          <div class="verdict">
+            <div class="stamp" id="stamp"></div>
+            <div class="vtext">
+              <div class="vlabel" id="vlabel"></div>
+              <div class="vconf" id="vconf"></div>
+            </div>
+          </div>
+          <div class="vmodel" id="vmodel"></div>
+          <div class="bars" id="probBars"></div>
+          <div class="metarow" id="metaRow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- overall sentiment (STEP 02) -->
+  <section class="block" id="overview">
+    <div class="sectionhead">
+      <span class="num">02</span>
+      <div>
+        <h2>Overall customer sentiment</h2>
+        <p class="sub" id="overviewLine"></p>
+      </div>
+    </div>
+    <div class="overview" id="overviewGrid">
+      <div class="donutcard">
+        <svg class="donut" id="donut" viewBox="0 0 42 42"></svg>
+        <div class="legend">
+          <span><i style="background:var(--pos)"></i>Positive</span>
+          <span><i style="background:var(--neu)"></i>Neutral</span>
+          <span><i style="background:var(--neg)"></i>Negative</span>
+        </div>
+      </div>
+      <div class="statsgrid">
+        <div class="stat"><div class="k">Reviews analysed</div><div class="v" id="stN"></div></div>
+        <div class="stat"><div class="k">Average rating</div><div class="v" id="stStars"></div></div>
+        <div class="stat" style="grid-column:1/-1">
+          <div class="k">Star distribution</div>
+          <div class="starbars" id="starBars"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- review-based questions (STEP 03) -->
+  <section class="block" id="reviewbased">
+    <div class="sectionhead">
+      <span class="num">03</span>
+      <div>
+        <h2>Review-based questions</h2>
+        <p class="sub">Answered directly from the text of all reviews.</p>
+      </div>
+    </div>
+    <div class="qgrid" id="reviewQs"></div>
+  </section>
+
+  <!-- aspect-based sentiment (STEP 04) -->
+  <section class="block" id="aspectsec">
+    <div class="sectionhead">
+      <span class="num">04</span>
+      <div>
+        <h2>Aspect-based sentiment</h2>
+        <p class="sub">Each review split into food, service, ambience and value. <em>(Advanced feature)</em></p>
+      </div>
+    </div>
+    <div class="aspects" id="aspectGrid"></div>
+  </section>
+
+  <!-- owner action plan (STEP 05) -->
+  <section class="block" id="ownersec">
+    <div class="sectionhead">
+      <span class="num">05</span>
+      <div>
+        <h2>Your action plan</h2>
+        <p class="sub">A quick read for you as the owner — what's working, and where to focus next.</p>
+      </div>
+    </div>
+    <div id="ownerCard"></div>
+  </section>
+
+  <footer>
+    <b>Sushi Restaurant Review</b> · Customer Review Sentiment · TNL6323 Natural Language Processing<br>
+</div>
+
+<script id="analytics-data" type="application/json">{{ analytics_json | safe }}</script>
+<script id="metrics-data" type="application/json">{{ metrics_json | safe }}</script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
