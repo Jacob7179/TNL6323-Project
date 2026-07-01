@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Review — Sushi Restaurant Sentiment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="tilestrip"></div>
+
+<div class="wrap">
+
+  <!-- top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brandmark">M</div>
+      <div>
+        <div class="brandname">Food Review</div>
+        <div class="brandsub">Sushi Restaurant &amp; Food Review Sentiment</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- hero + live classifier -->
+  <section class="hero">
+    <div class="eyebrow">TNL6323 · Natural Language Processing</div>
+    <h1>What are Malaysian <span class="hl">really</span> saying?</h1>
+    <p class="lede">A sentiment-analysis system trained on restaurant reviews.
+      Type a review to classify it live, or scroll to see what the whole dataset reveals about
+      taste, service, ambience and value.</p>
+
+    <div class="classifier">
+      <div class="cl-input">
+        <label for="review">Try a review</label>
+        <textarea id="review" placeholder="e.g. Food was delicious and the staff very friendly, but a bit pricey lah 😊"></textarea>
+        <div class="samples" id="samples"></div>
+        <div class="controls">
+          <div class="toggle" id="modeltoggle">
+            <button data-model="classical" class="active">Classical</button>
+            <button data-model="transformer">Transformer</button>
+          </div>
+          <button class="analyze" id="analyzeBtn">Analyze sentiment</button>
+        </div>
+      </div>
+      <div class="cl-result" id="resultPane">
+        <div class="placeholder" id="placeholder">
+          Your sentiment verdict, confidence, detected aspects and emojis will appear here.
+        </div>
+        <div id="resultBody" style="display:none">
+          <div class="verdict">
+            <div class="stamp" id="stamp"></div>
+            <div class="vtext">
+              <div class="vlabel" id="vlabel"></div>
+              <div class="vconf" id="vconf"></div>
+            </div>
+          </div>
+          <div class="vmodel" id="vmodel"></div>
+          <div class="bars" id="probBars"></div>
+          <div class="metarow" id="metaRow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- overall sentiment -->
+  <section class="block" id="overview">
+    <div class="sectionhead">
+      <span class="num">01</span>
+      <div>
+        <h2>Overall customer sentiment</h2>
+        <p class="sub" id="overviewLine"></p>
+      </div>
+    </div>
+    <div class="overview">
+      <div class="donutcard">
+        <svg class="donut" id="donut" viewBox="0 0 42 42"></svg>
+        <div class="legend">
+          <span><i style="background:var(--pos)"></i>Positive</span>
+          <span><i style="background:var(--neu)"></i>Neutral</span>
+          <span><i style="background:var(--neg)"></i>Negative</span>
+        </div>
+      </div>
+      <div class="statsgrid">
+        <div class="stat"><div class="k">Reviews analysed</div><div class="v" id="stN"></div></div>
+        <div class="stat"><div class="k">Average rating</div><div class="v" id="stStars"></div></div>
+        <div class="stat" style="grid-column:1/-1">
+          <div class="k">Star distribution</div>
+          <div class="starbars" id="starBars"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- review-based questions -->
+  <section class="block" id="reviewbased">
+    <div class="sectionhead">
+      <span class="num">02</span>
+      <div>
+        <h2>Review-based questions</h2>
+        <p class="sub">Answered directly from the text of all reviews.</p>
+      </div>
+    </div>
+    <div class="qgrid" id="reviewQs"></div>
+  </section>
+
+  <!-- aspect-based sentiment -->
+  <section class="block" id="aspectsec">
+    <div class="sectionhead">
+      <span class="num">03</span>
+      <div>
+        <h2>Aspect-based sentiment</h2>
+        <p class="sub">Each review split into food, service, ambience and value. <em>(Advanced feature)</em></p>
+      </div>
+    </div>
+    <div class="aspects" id="aspectGrid"></div>
+  </section>
+
+  <!-- model card -->
+
+  <footer>
+    <b>Food Reviews (Malaysia Context)</b> · Restaurant &amp;  Sushi Restaurant· TNL6323 Natural Language Processing<br>
+  </footer>
+</div>
+
+<script id="analytics-data" type="application/json">{{ analytics_json | safe }}</script>
+<script id="metrics-data" type="application/json">{{ metrics_json | safe }}</script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# ---- core (always required) ----
+Flask==3.0.3
+gunicorn==22.0.0
+scikit-learn==1.6.1
+joblib==1.4.2
+pandas==2.2.2
+numpy==1.26.4
+emoji==2.15.0
+vaderSentiment==3.3.2
+
+# ---- advanced feature: transformer sentiment ----
+# These enable the "Transformer" model toggle. They are heavier; if you want a
+# lighter Space, delete the two lines below — the app automatically falls back
+# to the classical model (the Transformer toggle will simply say "offline").
+transformers==4.44.2
+torch==2.2.2

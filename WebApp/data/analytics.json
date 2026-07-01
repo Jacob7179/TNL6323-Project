@@ -1,0 +1,512 @@
+{
+  "n_reviews": 419,
+  "overall": {
+    "positive": 300,
+    "neutral": 36,
+    "negative": 83,
+    "pos_pct": 71.6,
+    "neu_pct": 8.6,
+    "neg_pct": 19.8,
+    "avg_stars": 4.24
+  },
+  "star_distribution": {
+    "1": 21,
+    "2": 12,
+    "3": 33,
+    "4": 132,
+    "5": 221
+  },
+  "aspects": {
+    "food": {
+      "mentions": 232,
+      "positive": 184,
+      "neutral": 2,
+      "negative": 46,
+      "pos_pct": 79.3,
+      "neg_pct": 19.8,
+      "avg_stars": 4.23,
+      "example_positive": "Food delicious and impressed with the staff service. They go all the way out to help customers' needs. A place where I will definitely visit againGroup size 1 person, 2 people, 3-4…",
+      "example_negative": "Hokkaido don is a real disappointment. RM82 is not cheap. But SO MUCH rice and very little sashimi and uni (sea urchin). Sashimi-type scallop should be sweet tasting but the scallo…",
+      "top_words": [
+        "food",
+        "good",
+        "japanese",
+        "service",
+        "nice",
+        "fresh",
+        "price",
+        "restaurant"
+      ]
+    },
+    "service": {
+      "mentions": 147,
+      "positive": 103,
+      "neutral": 13,
+      "negative": 31,
+      "pos_pct": 70.1,
+      "neg_pct": 21.1,
+      "avg_stars": 4.22,
+      "example_positive": "Food delicious and impressed with the staff service. They go all the way out to help customers' needs. A place where I will definitely visit againGroup size 1 person, 2 people, 3-4…",
+      "example_negative": "Hokkaido don is a real disappointment. RM82 is not cheap. But SO MUCH rice and very little sashimi and uni (sea urchin). Sashimi-type scallop should be sweet tasting but the scallo…",
+      "top_words": [
+        "service",
+        "food",
+        "good",
+        "japanese",
+        "restaurant",
+        "fresh",
+        "order",
+        "staff"
+      ]
+    },
+    "ambiance": {
+      "mentions": 71,
+      "positive": 58,
+      "neutral": 2,
+      "negative": 11,
+      "pos_pct": 81.7,
+      "neg_pct": 15.5,
+      "avg_stars": 4.35,
+      "example_positive": "Good food and clean environment. prompt and polite service from staff. Food: 4/5",
+      "example_negative": "Food: could have been better. All small portion. What's the point as customer will just keep ordering more. Consider serving the appropriate portion so less work for Ur kitchen and…",
+      "top_words": [
+        "food",
+        "good",
+        "service",
+        "restaurant",
+        "nice",
+        "environment",
+        "fresh",
+        "japanese"
+      ]
+    },
+    "price": {
+      "mentions": 91,
+      "positive": 65,
+      "neutral": 1,
+      "negative": 25,
+      "pos_pct": 71.4,
+      "neg_pct": 27.5,
+      "avg_stars": 4.13,
+      "example_positive": "Food tasted good, menu has a lot of varieties that other places don't have, price quite reasonable, staff also very attentive and friendlyFood: 5/5 ✓ Service: 5/5 ✓ Atmosphere: 5/5…",
+      "example_negative": "Hokkaido don is a real disappointment. RM82 is not cheap. But SO MUCH rice and very little sashimi and uni (sea urchin). Sashimi-type scallop should be sweet tasting but the scallo…",
+      "top_words": [
+        "food",
+        "price",
+        "good",
+        "japanese",
+        "service",
+        "worth",
+        "fresh",
+        "reasonable"
+      ]
+    }
+  },
+  "aspect_ratings": {
+    "food": {
+      "avg": 4.39,
+      "n": 135
+    },
+    "service": {
+      "avg": 4.55,
+      "n": 135
+    },
+    "atmosphere": {
+      "avg": 4.52,
+      "n": 132
+    }
+  },
+  "top_emojis": [
+    {
+      "emoji": "🎩",
+      "count": 6
+    },
+    {
+      "emoji": "👍",
+      "count": 5
+    },
+    {
+      "emoji": "💜",
+      "count": 5
+    },
+    {
+      "emoji": "🌟",
+      "count": 4
+    },
+    {
+      "emoji": "❤️",
+      "count": 3
+    },
+    {
+      "emoji": "😊",
+      "count": 3
+    },
+    {
+      "emoji": "🧡",
+      "count": 3
+    },
+    {
+      "emoji": "⛩",
+      "count": 3
+    },
+    {
+      "emoji": "😋",
+      "count": 2
+    },
+    {
+      "emoji": "😍",
+      "count": 2
+    }
+  ],
+  "questions": {
+    "like_most": {
+      "title": "What do customers like most?",
+      "keywords": [
+        [
+          "good",
+          5.18
+        ],
+        [
+          "food",
+          4.99
+        ],
+        [
+          "nice",
+          3.82
+        ],
+        [
+          "japanese",
+          3.61
+        ],
+        [
+          "fresh",
+          3.45
+        ],
+        [
+          "great",
+          3.13
+        ],
+        [
+          "staff",
+          2.34
+        ],
+        [
+          "delicious",
+          2.25
+        ],
+        [
+          "reasonable",
+          2.22
+        ],
+        [
+          "friendly",
+          2.21
+        ],
+        [
+          "service",
+          2.17
+        ],
+        [
+          "clean",
+          2.16
+        ]
+      ],
+      "summary": "Most appreciated aspects: ambiance, food."
+    },
+    "complaints": {
+      "title": "What are the most common complaints?",
+      "keywords": [
+        [
+          "bad",
+          3.22
+        ],
+        [
+          "disappointed",
+          2.16
+        ],
+        [
+          "kitchen",
+          1.83
+        ],
+        [
+          "tasteless",
+          1.83
+        ],
+        [
+          "small",
+          1.83
+        ],
+        [
+          "ghibli",
+          1.83
+        ],
+        [
+          "normal",
+          1.83
+        ],
+        [
+          "won",
+          1.83
+        ],
+        [
+          "disappointment",
+          1.83
+        ],
+        [
+          "put",
+          1.83
+        ],
+        [
+          "little",
+          1.82
+        ],
+        [
+          "don",
+          1.76
+        ]
+      ],
+      "summary": "Most complained-about aspects: price, service."
+    },
+    "negative_themes": {
+      "title": "What themes appear in negative reviews?",
+      "keywords": [
+        [
+          "food",
+          27
+        ],
+        [
+          "price",
+          17
+        ],
+        [
+          "service",
+          16
+        ],
+        [
+          "japanese",
+          14
+        ],
+        [
+          "good",
+          12
+        ],
+        [
+          "restaurant",
+          11
+        ],
+        [
+          "sushi",
+          10
+        ],
+        [
+          "time",
+          9
+        ],
+        [
+          "bad",
+          9
+        ],
+        [
+          "order",
+          9
+        ],
+        [
+          "quality",
+          9
+        ],
+        [
+          "taste",
+          7
+        ]
+      ],
+      "examples": [
+        "Hokkaido don is a real disappointment. RM82 is not cheap. But SO MUCH rice and very little sashimi and uni (sea urchin). Sashimi-type scallop should be sweet tasting but the scallo…",
+        "Food: 5/5 and service: 5/5",
+        "This is my first time in this restaurant. The food is fast service, but the rice I am not happy about it. The sushi rice was over sour, and this taste was not a sushi. The sushi It…"
+      ]
+    },
+    "ambience": {
+      "title": "How do customers describe the ambience?",
+      "aspect": {
+        "mentions": 71,
+        "positive": 58,
+        "neutral": 2,
+        "negative": 11,
+        "pos_pct": 81.7,
+        "neg_pct": 15.5,
+        "avg_stars": 4.35,
+        "example_positive": "Good food and clean environment. prompt and polite service from staff. Food: 4/5",
+        "example_negative": "Food: could have been better. All small portion. What's the point as customer will just keep ordering more. Consider serving the appropriate portion so less work for Ur kitchen and…",
+        "top_words": [
+          "food",
+          "good",
+          "service",
+          "restaurant",
+          "nice",
+          "environment",
+          "fresh",
+          "japanese"
+        ]
+      }
+    },
+    "overall_summary": {
+      "title": "Overall customer sentiment",
+      "line": "72% positive, 9% neutral, 20% negative across 419 reviews (avg 4.2★)."
+    },
+    "service_vs_food": {
+      "title": "Why is the service rating lower than the food rating?",
+      "food_avg": 4.39,
+      "service_avg": 4.55,
+      "atmosphere_avg": 4.52,
+      "food_neg_pct": 19.8,
+      "service_neg_pct": 21.1,
+      "service_complaint_words": [
+        [
+          "bad",
+          2.65
+        ],
+        [
+          "ghibli",
+          2.02
+        ],
+        [
+          "disappointment",
+          2.02
+        ],
+        [
+          "even",
+          1.85
+        ],
+        [
+          "blow",
+          1.71
+        ],
+        [
+          "cant",
+          1.71
+        ],
+        [
+          "worst",
+          1.71
+        ],
+        [
+          "kitchen",
+          1.71
+        ]
+      ]
+    },
+    "five_star_drivers": {
+      "title": "What factors drive 5-star reviews?",
+      "keywords": [
+        [
+          "fresh",
+          2.52
+        ],
+        [
+          "definitely",
+          2.42
+        ],
+        [
+          "excellent",
+          2.42
+        ],
+        [
+          "tempura",
+          2.21
+        ],
+        [
+          "special",
+          2.2
+        ],
+        [
+          "family",
+          2.09
+        ],
+        [
+          "great",
+          2.08
+        ],
+        [
+          "enjoyed",
+          1.9
+        ],
+        [
+          "friendly",
+          1.89
+        ],
+        [
+          "after",
+          1.82
+        ],
+        [
+          "ordered",
+          1.78
+        ],
+        [
+          "dish",
+          1.77
+        ]
+      ],
+      "n": 221
+    },
+    "one_star_issues": {
+      "title": "What issues appear in 1-star reviews?",
+      "keywords": [
+        [
+          "wagyu",
+          2.02
+        ],
+        [
+          "cant",
+          1.86
+        ],
+        [
+          "worst",
+          1.86
+        ],
+        [
+          "unprofessional",
+          1.86
+        ],
+        [
+          "toilet",
+          1.86
+        ],
+        [
+          "called",
+          1.86
+        ],
+        [
+          "phones",
+          1.86
+        ],
+        [
+          "horrible",
+          1.86
+        ],
+        [
+          "fair",
+          1.86
+        ],
+        [
+          "customer",
+          1.67
+        ],
+        [
+          "kitchen",
+          1.6
+        ],
+        [
+          "ryori",
+          1.6
+        ]
+      ],
+      "n": 33,
+      "examples": [
+        "Food: 1/5 Service: 2/5 Atmosphere: 2/5",
+        "Although the food tastes good but it's a bit expensiveFood: 3/5",
+        "Food: 1/5 Service: 1/5 Atmosphere: 1/5"
+      ]
+    }
+  }
+}
