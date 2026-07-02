@@ -1,5 +1,5 @@
 ---
-title: MakanSense Malaysia Restaurant Sentiment
+title: Analyzing Japanese Restaurant Food Reviews with NLP
 emoji: 🍜
 colorFrom: green
 colorTo: yellow
@@ -9,7 +9,7 @@ pinned: false
 license: mit
 ---
 
-# MakanSense — Malaysia Restaurant & Food Review Sentiment
+<h1 align="center">Analyzing Japanese Restaurant Food Reviews with NLP</h1>
 
 A sentiment-analysis web app for **TNL6323 Natural Language Processing**
 (domain *d. Restaurant & Food Reviews, Malaysia context*). It classifies
