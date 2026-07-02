@@ -49,6 +49,14 @@ python build_analytics.py  # builds the dashboard data -> data/analytics.json
 python app.py              # serves on http://localhost:7860
 ```
 
+## Windows Quick Start
+
+For Windows users, the included script can install Python 3.11 when needed, create the virtual environment, install dependencies, and start the application:
+
+```bat
+./run.bat
+```
+
 ## Deploy to Hugging Face Spaces
 
 1. Create a new Space → **SDK: Docker**.
