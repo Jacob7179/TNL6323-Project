@@ -12,6 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Get current commit message
+        run: |
+          {
+            echo 'COMMIT_MESSAGE<<EOF'
+            git log -1 --pretty=%B
+            echo EOF
+          } >> "$GITHUB_ENV"
+
       - name: Install Hugging Face upload tools
         run: |
           python -m pip install -U huggingface_hub hf_xet
@@ -26,11 +34,15 @@ jobs:
 
           api = HfApi(token=os.environ["HF_TOKEN"])
 
+          commit_message = os.environ.get("COMMIT_MESSAGE", "").strip()
+          if not commit_message:
+              commit_message = "Sync from GitHub Actions"
+
           api.upload_folder(
               folder_path=".",
               repo_id="Jacob7179/TNL6323-Project",
               repo_type="space",
-              commit_message="Sync from GitHub Actions",
+              commit_message=commit_message,
               ignore_patterns=[
                   ".git/*",
                   ".github/*",
